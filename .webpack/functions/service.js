@@ -50083,14 +50083,10 @@ var getById = async (event) => {
 };
 var createUser = async (event) => {
   try {
-    console.log("Function triggered");
     let body = event.body || "{}";
     const data = JSON.parse(body);
-    console.log("Received data:", data);
     const { first_name, last_name, age, dob, about } = data;
-    console.log("Parsed data:", { first_name, last_name, age, dob, about });
     const userInstance = await User.create(data);
-    console.log("User created:", userInstance);
     return {
       statusCode: 200,
       body: JSON.stringify({

@@ -43,4 +43,7 @@ functions:
       - httpApi:
           path: /users/{id}
           method: put
-plugins: [ 'serverless-offline']
+plugins: [ 'serverless-offline',serverless-sequelize-migrations]
+custom:
+  sequelize-migrations:
+    modelsDir: '/models' 

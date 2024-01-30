@@ -1,6 +1,9 @@
 # to start project
 serverless offine start
 
+# for build
+npm run build 
+
 # to deploy lambda 
 serverless deploy
 
