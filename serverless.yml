@@ -1,0 +1,46 @@
+service: youtube-api
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ap-south-1
+  timeout: 30
+
+functions:
+ 
+  usersAll:
+    handler: /.webpack/functions/handler.usersAll
+    events:
+      - httpApi:
+          path: /users
+          method: get
+
+  usersOne:
+    handler: /.webpack/functions/handler.usersOne
+    events:
+      - httpApi:
+          path: /users/{id}
+          method: get
+
+  saveUser:
+    handler: .webpack//functions/handler.saveUser
+    events:
+      - httpApi:
+          path: /users
+          method: post
+
+  removeUser:
+    handler: .webpack//functions/handler.removeUser
+    events:
+      - httpApi:
+          path: /users/{id}
+          method: delete
+
+  editUser:
+    handler: .webpack//functions/handler.editUser
+    events:
+      - httpApi:
+          path: /users/{id}
+          method: put
+plugins: [ 'serverless-offline']
