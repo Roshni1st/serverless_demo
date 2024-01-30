@@ -199,7 +199,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/youtube-api/dev/1706602070130-2024-01-30T08:07:50.130Z/youtube-api.zip"
+                "S3Key": "serverless/youtube-api/dev/1706607274519-2024-01-30T09:34:34.519Z/youtube-api.zip"
               },
               "Handler": "/.webpack/functions/handler.usersAll",
               "Runtime": "nodejs14.x",
@@ -224,7 +224,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/youtube-api/dev/1706602070130-2024-01-30T08:07:50.130Z/youtube-api.zip"
+                "S3Key": "serverless/youtube-api/dev/1706607274519-2024-01-30T09:34:34.519Z/youtube-api.zip"
               },
               "Handler": "/.webpack/functions/handler.usersOne",
               "Runtime": "nodejs14.x",
@@ -249,7 +249,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/youtube-api/dev/1706602070130-2024-01-30T08:07:50.130Z/youtube-api.zip"
+                "S3Key": "serverless/youtube-api/dev/1706607274519-2024-01-30T09:34:34.519Z/youtube-api.zip"
               },
               "Handler": ".webpack//functions/handler.saveUser",
               "Runtime": "nodejs14.x",
@@ -274,7 +274,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/youtube-api/dev/1706602070130-2024-01-30T08:07:50.130Z/youtube-api.zip"
+                "S3Key": "serverless/youtube-api/dev/1706607274519-2024-01-30T09:34:34.519Z/youtube-api.zip"
               },
               "Handler": ".webpack//functions/handler.removeUser",
               "Runtime": "nodejs14.x",
@@ -299,7 +299,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/youtube-api/dev/1706602070130-2024-01-30T08:07:50.130Z/youtube-api.zip"
+                "S3Key": "serverless/youtube-api/dev/1706607274519-2024-01-30T09:34:34.519Z/youtube-api.zip"
               },
               "Handler": ".webpack//functions/handler.editUser",
               "Runtime": "nodejs14.x",
@@ -317,54 +317,54 @@
               "EditUserLogGroup"
             ]
           },
-          "UsersAllLambdaVersionGnNYPNK8UmfjbLwRPhzVjVaDrZS5ZbDMjuIQoPqeQ8": {
+          "UsersAllLambdaVersion1TkL0Oy2KGFlHehSqpXDT6saTIwh7W1mashHItCQA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UsersAllLambdaFunction"
               },
-              "CodeSha256": "wnhNvyOB8bIWtGIUw/NUUGiu+1zLLejgpyumB7KCS2A="
+              "CodeSha256": "hazvGjNA0U/RvGtU8SnCOliJnqu0sqPIyawsiCARSnI="
             }
           },
-          "UsersOneLambdaVersionDW2LKDG3ekL1vkuJruAH77simeKxJuMhwFLYKEhj2Us": {
+          "UsersOneLambdaVersionzuIFmgNAKgyhcEshA2pLMCOq2ulGu29bS9IhSXQZ4M": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UsersOneLambdaFunction"
               },
-              "CodeSha256": "wnhNvyOB8bIWtGIUw/NUUGiu+1zLLejgpyumB7KCS2A="
+              "CodeSha256": "hazvGjNA0U/RvGtU8SnCOliJnqu0sqPIyawsiCARSnI="
             }
           },
-          "SaveUserLambdaVersionJFHdOenVaCFYMqkTMOyUPINlNg8WRWQg9uX1MDcQo": {
+          "SaveUserLambdaVersionAKIsWVZ9Cs5e05Rh7932WvEkwnycq7p6C3TSvksp1FM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SaveUserLambdaFunction"
               },
-              "CodeSha256": "wnhNvyOB8bIWtGIUw/NUUGiu+1zLLejgpyumB7KCS2A="
+              "CodeSha256": "hazvGjNA0U/RvGtU8SnCOliJnqu0sqPIyawsiCARSnI="
             }
           },
-          "RemoveUserLambdaVersion1ud6MIDIgcyY5BWFcMyZdIP4NoXXTLLxoOFqSpqQ": {
+          "RemoveUserLambdaVersionfEZP3iQmVjAkqzphR1VXQbuSYc2mmiEcEIuE0oEKcg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RemoveUserLambdaFunction"
               },
-              "CodeSha256": "wnhNvyOB8bIWtGIUw/NUUGiu+1zLLejgpyumB7KCS2A="
+              "CodeSha256": "hazvGjNA0U/RvGtU8SnCOliJnqu0sqPIyawsiCARSnI="
             }
           },
-          "EditUserLambdaVersionW8iJVggsr4GEJTGPESjPMxgFfQHm5B0AfIkMEBTsM": {
+          "EditUserLambdaVersionN3FrjCr27m0PXQcqG2LoqmoyMMpDlUMLBuIQiwbpUM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "EditUserLambdaFunction"
               },
-              "CodeSha256": "wnhNvyOB8bIWtGIUw/NUUGiu+1zLLejgpyumB7KCS2A="
+              "CodeSha256": "hazvGjNA0U/RvGtU8SnCOliJnqu0sqPIyawsiCARSnI="
             }
           },
           "HttpApi": {
@@ -760,7 +760,7 @@
           "UsersAllLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UsersAllLambdaVersionGnNYPNK8UmfjbLwRPhzVjVaDrZS5ZbDMjuIQoPqeQ8"
+              "Ref": "UsersAllLambdaVersion1TkL0Oy2KGFlHehSqpXDT6saTIwh7W1mashHItCQA"
             },
             "Export": {
               "Name": "sls-youtube-api-dev-UsersAllLambdaFunctionQualifiedArn"
@@ -769,7 +769,7 @@
           "UsersOneLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UsersOneLambdaVersionDW2LKDG3ekL1vkuJruAH77simeKxJuMhwFLYKEhj2Us"
+              "Ref": "UsersOneLambdaVersionzuIFmgNAKgyhcEshA2pLMCOq2ulGu29bS9IhSXQZ4M"
             },
             "Export": {
               "Name": "sls-youtube-api-dev-UsersOneLambdaFunctionQualifiedArn"
@@ -778,7 +778,7 @@
           "SaveUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SaveUserLambdaVersionJFHdOenVaCFYMqkTMOyUPINlNg8WRWQg9uX1MDcQo"
+              "Ref": "SaveUserLambdaVersionAKIsWVZ9Cs5e05Rh7932WvEkwnycq7p6C3TSvksp1FM"
             },
             "Export": {
               "Name": "sls-youtube-api-dev-SaveUserLambdaFunctionQualifiedArn"
@@ -787,7 +787,7 @@
           "RemoveUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RemoveUserLambdaVersion1ud6MIDIgcyY5BWFcMyZdIP4NoXXTLLxoOFqSpqQ"
+              "Ref": "RemoveUserLambdaVersionfEZP3iQmVjAkqzphR1VXQbuSYc2mmiEcEIuE0oEKcg"
             },
             "Export": {
               "Name": "sls-youtube-api-dev-RemoveUserLambdaFunctionQualifiedArn"
@@ -796,7 +796,7 @@
           "EditUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "EditUserLambdaVersionW8iJVggsr4GEJTGPESjPMxgFfQHm5B0AfIkMEBTsM"
+              "Ref": "EditUserLambdaVersionN3FrjCr27m0PXQcqG2LoqmoyMMpDlUMLBuIQiwbpUM"
             },
             "Export": {
               "Name": "sls-youtube-api-dev-EditUserLambdaFunctionQualifiedArn"
@@ -922,8 +922,14 @@
       },
       "vpc": {}
     },
+    "custom": {
+      "sequelize-migrations": {
+        "modelsDir": "/models"
+      }
+    },
     "plugins": [
-      "serverless-offline"
+      "serverless-offline",
+      "serverless-sequelize-migrations"
     ],
     "pluginsData": {},
     "functions": {
@@ -945,7 +951,7 @@
         "timeout": 60,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "UsersAllLambdaVersionGnNYPNK8UmfjbLwRPhzVjVaDrZS5ZbDMjuIQoPqeQ8"
+        "versionLogicalId": "UsersAllLambdaVersion1TkL0Oy2KGFlHehSqpXDT6saTIwh7W1mashHItCQA"
       },
       "usersOne": {
         "handler": "/.webpack/functions/handler.usersOne",
@@ -965,7 +971,7 @@
         "timeout": 60,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "UsersOneLambdaVersionDW2LKDG3ekL1vkuJruAH77simeKxJuMhwFLYKEhj2Us"
+        "versionLogicalId": "UsersOneLambdaVersionzuIFmgNAKgyhcEshA2pLMCOq2ulGu29bS9IhSXQZ4M"
       },
       "saveUser": {
         "handler": ".webpack//functions/handler.saveUser",
@@ -985,7 +991,7 @@
         "timeout": 60,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "SaveUserLambdaVersionJFHdOenVaCFYMqkTMOyUPINlNg8WRWQg9uX1MDcQo"
+        "versionLogicalId": "SaveUserLambdaVersionAKIsWVZ9Cs5e05Rh7932WvEkwnycq7p6C3TSvksp1FM"
       },
       "removeUser": {
         "handler": ".webpack//functions/handler.removeUser",
@@ -1005,7 +1011,7 @@
         "timeout": 60,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "RemoveUserLambdaVersion1ud6MIDIgcyY5BWFcMyZdIP4NoXXTLLxoOFqSpqQ"
+        "versionLogicalId": "RemoveUserLambdaVersionfEZP3iQmVjAkqzphR1VXQbuSYc2mmiEcEIuE0oEKcg"
       },
       "editUser": {
         "handler": ".webpack//functions/handler.editUser",
@@ -1025,7 +1031,7 @@
         "timeout": 60,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "EditUserLambdaVersionW8iJVggsr4GEJTGPESjPMxgFfQHm5B0AfIkMEBTsM"
+        "versionLogicalId": "EditUserLambdaVersionN3FrjCr27m0PXQcqG2LoqmoyMMpDlUMLBuIQiwbpUM"
       }
     },
     "configValidationMode": "warn",
@@ -1041,6 +1047,9 @@
       },
       "plugins": {
         "$ref": "$[\"service\"][\"plugins\"]"
+      },
+      "custom": {
+        "$ref": "$[\"service\"][\"custom\"]"
       }
     },
     "layers": {},
@@ -1048,7 +1057,7 @@
     "artifact": "D:\\Node-Tatva\\basic-servrerless-demo\\.serverless\\youtube-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/youtube-api/dev/1706602070130-2024-01-30T08:07:50.130Z",
+    "artifactDirectoryName": "serverless/youtube-api/dev/1706607274519-2024-01-30T09:34:34.519Z",
     "artifact": "youtube-api.zip"
   }
 }

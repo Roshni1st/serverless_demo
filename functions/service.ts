@@ -84,7 +84,7 @@ export const createUser = async (event: APIGatewayProxyEvent): Promise<APIGatewa
       })
     };
   } catch (err) {
-    console.log('Error in createUser:', err);  // Add this log statement
+    console.log('Error in createUser:', err);  
     return {
       statusCode: 500,
       body: JSON.stringify({
