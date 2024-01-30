@@ -7,6 +7,10 @@ npm run build
 # to deploy lambda 
 serverless deploy
 
+# for migrations
+npx sequelize-cli db:migrate
+npx sequelize-cli db:migrate:undo
+
 # postman collection
 go to file : serverless_demo.postman_collection.json
 
