@@ -106,7 +106,7 @@ var require_package = __commonJS({
 // node_modules/dotenv/lib/main.js
 var require_main = __commonJS({
   "node_modules/dotenv/lib/main.js"(exports2, module2) {
-    var fs = require("fs");
+    var fs2 = require("fs");
     var path = require("path");
     var os = require("os");
     var crypto4 = require("crypto");
@@ -213,7 +213,7 @@ var require_main = __commonJS({
       if (options && options.path && options.path.length > 0) {
         if (Array.isArray(options.path)) {
           for (const filepath of options.path) {
-            if (fs.existsSync(filepath)) {
+            if (fs2.existsSync(filepath)) {
               possibleVaultPath = filepath.endsWith(".vault") ? filepath : `${filepath}.vault`;
             }
           }
@@ -223,7 +223,7 @@ var require_main = __commonJS({
       } else {
         possibleVaultPath = path.resolve(process.cwd(), ".env.vault");
       }
-      if (fs.existsSync(possibleVaultPath)) {
+      if (fs2.existsSync(possibleVaultPath)) {
         return possibleVaultPath;
       }
       return null;
@@ -250,7 +250,7 @@ var require_main = __commonJS({
           let envPath = options.path;
           if (Array.isArray(envPath)) {
             for (const filepath of options.path) {
-              if (fs.existsSync(filepath)) {
+              if (fs2.existsSync(filepath)) {
                 envPath = filepath;
                 break;
               }
@@ -267,7 +267,7 @@ var require_main = __commonJS({
         }
       }
       try {
-        const parsed = DotenvModule.parse(fs.readFileSync(dotenvPath, { encoding }));
+        const parsed = DotenvModule.parse(fs2.readFileSync(dotenvPath, { encoding }));
         let processEnv = process.env;
         if (options && options.processEnv != null) {
           processEnv = options.processEnv;
@@ -416,15 +416,15 @@ var require_pg_connection_string = __commonJS({
       if (config2.sslcert || config2.sslkey || config2.sslrootcert || config2.sslmode) {
         config2.ssl = {};
       }
-      const fs = config2.sslcert || config2.sslkey || config2.sslrootcert ? require("fs") : null;
+      const fs2 = config2.sslcert || config2.sslkey || config2.sslrootcert ? require("fs") : null;
       if (config2.sslcert) {
-        config2.ssl.cert = fs.readFileSync(config2.sslcert).toString();
+        config2.ssl.cert = fs2.readFileSync(config2.sslcert).toString();
       }
       if (config2.sslkey) {
-        config2.ssl.key = fs.readFileSync(config2.sslkey).toString();
+        config2.ssl.key = fs2.readFileSync(config2.sslkey).toString();
       }
       if (config2.sslrootcert) {
-        config2.ssl.ca = fs.readFileSync(config2.sslrootcert).toString();
+        config2.ssl.ca = fs2.readFileSync(config2.sslrootcert).toString();
       }
       switch (config2.sslmode) {
         case "disable": {
@@ -45298,7 +45298,7 @@ var require_postgres = __commonJS({
 var require_connection_manager7 = __commonJS({
   "node_modules/sequelize/lib/dialects/sqlite/connection-manager.js"(exports2, module2) {
     "use strict";
-    var fs = require("fs");
+    var fs2 = require("fs");
     var path = require("path");
     var AbstractConnectionManager = require_connection_manager();
     var { logger } = require_logger();
@@ -45343,7 +45343,7 @@ var require_connection_manager7 = __commonJS({
           return this.connections[options.inMemory || options.uuid];
         }
         if (!options.inMemory && (options.readWriteMode & this.lib.OPEN_CREATE) !== 0) {
-          fs.mkdirSync(path.dirname(options.storage), { recursive: true });
+          fs2.mkdirSync(path.dirname(options.storage), { recursive: true });
         }
         const connection = await new Promise((resolve, reject) => {
           this.connections[options.inMemory || options.uuid] = new this.lib.Database(options.storage, options.readWriteMode, (err) => {
@@ -49339,36 +49339,36 @@ var require_sequelize = __commonJS({
           keepDefaultTimezone: this.options.keepDefaultTimezone,
           dialectOptions: this.options.dialectOptions
         };
-        let Dialect;
+        let Dialect2;
         switch (this.getDialect()) {
           case "mariadb":
-            Dialect = require_mariadb();
+            Dialect2 = require_mariadb();
             break;
           case "mssql":
-            Dialect = require_mssql();
+            Dialect2 = require_mssql();
             break;
           case "mysql":
-            Dialect = require_mysql();
+            Dialect2 = require_mysql();
             break;
           case "oracle":
-            Dialect = require_oracle();
+            Dialect2 = require_oracle();
             break;
           case "postgres":
-            Dialect = require_postgres();
+            Dialect2 = require_postgres();
             break;
           case "sqlite":
-            Dialect = require_sqlite();
+            Dialect2 = require_sqlite();
             break;
           case "db2":
-            Dialect = require_db2();
+            Dialect2 = require_db2();
             break;
           case "snowflake":
-            Dialect = require_snowflake();
+            Dialect2 = require_snowflake();
             break;
           default:
             throw new Error(`The dialect ${this.getDialect()} is not supported. Supported dialects: mssql, mariadb, mysql, oracle, postgres, db2 and sqlite.`);
         }
-        this.dialect = new Dialect(this);
+        this.dialect = new Dialect2(this);
         this.dialect.queryGenerator.typeValidation = options.typeValidation;
         if (_.isPlainObject(this.options.operatorsAliases)) {
           deprecations.noStringOperators();
@@ -49989,6 +49989,7 @@ __export(handler_exports, {
   editUser: () => editUser,
   removeUser: () => removeUser,
   saveUser: () => saveUser,
+  swagger: () => swagger,
   usersAll: () => usersAll,
   usersOne: () => usersOne
 });
@@ -50189,6 +50190,37 @@ var updateUser = async (event) => {
   }
 };
 
+// functions/swagger.handler.ts
+var import_fs = __toESM(require("fs"));
+var swaggerJson = JSON.parse(import_fs.default.readFileSync("swagger.json", "utf8"));
+var html = `
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css">
+    </head>
+    <body>
+      <div id="swagger"></div>
+      <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+      <script>
+        SwaggerUIBundle({
+          dom_id: '#swagger',
+          spec: ${JSON.stringify(swaggerJson)},
+          presets: [SwaggerUIBundle.presets.apis],
+          url: "http://localhost:3000/swagger.json"  // Add a comma here
+        });
+      </script>
+    </body>
+  </html>`;
+var swaggerHandler = async (event) => {
+  return {
+    statusCode: 200,
+    headers: { "Content-Type": "text/html" },
+    body: html
+  };
+};
+
 // functions/handler.ts
 var usersAll = async (event) => {
   return await getAll();
@@ -50205,11 +50237,15 @@ var removeUser = async (event) => {
 var editUser = async (event) => {
   return await updateUser(event);
 };
+var swagger = async (event) => {
+  return await swaggerHandler(event);
+};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   editUser,
   removeUser,
   saveUser,
+  swagger,
   usersAll,
   usersOne
 });

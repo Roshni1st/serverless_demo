@@ -1,24 +1,23 @@
 {
-    "development": {
-      "username": "root",
-      "password": "root",
-      "database": "serverless_demo",
-      "host": "localhost",
-      "dialect": "mysql"
-    },
-    "test": {
-      "username": "your_test_database_username",
-      "password": "your_test_database_password",
-      "database": "your_test_database_name",
-      "host": "localhost",
-      "dialect": "mysql"
-    },
-    "production": {
-      "username": "your_production_database_username",
-      "password": "your_production_database_password",
-      "database": "your_production_database_name",
-      "host": "localhost",
-      "dialect": "mysql"
-    }
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "serverless_demo",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "your_test_database_username",
+    "password": "your_test_database_password",
+    "database": "your_test_database_name",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "your_production_database_username",
+    "password": "your_production_database_password",
+    "database": "your_production_database_name",
+    "host": "localhost",
+    "dialect": "mysql"
   }
-  
+}

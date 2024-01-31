@@ -1,5 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { getAll, getById, createUser, deleteUser, updateUser } from './service';
+import { swaggerHandler } from './swagger.handler';
 
 export const usersAll = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   return await getAll();
@@ -19,4 +20,8 @@ export const removeUser = async (event: APIGatewayProxyEvent): Promise<APIGatewa
 
 export const editUser = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   return await updateUser(event);
+};
+
+export const swagger = async (event:APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+  return await swaggerHandler(event); 
 };

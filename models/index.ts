@@ -1,14 +1,13 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
-import { Sequelize } from 'sequelize';
+import { Dialect, Sequelize } from 'sequelize';
 import userModel from './user';
-
 
 const dbName = process.env.DB_NAME;
 const dbUsername = process.env.DB_USERNAME;
 const dbPassword = process.env.DB_PASSWORD;
 const dbHost = process.env.DB_HOST;
-const dbDialect = process.env.DB_DIALECT;
+const dbDialect: Dialect = process.env.DB_DIALECT as Dialect;
 
 if (!dbName || !dbUsername || !dbPassword || !dbHost || !dbDialect) {
   throw new Error('One or more required environment variables are not defined.');
@@ -16,7 +15,7 @@ if (!dbName || !dbUsername || !dbPassword || !dbHost || !dbDialect) {
 
 const sequelize = new Sequelize(dbName, dbUsername, dbPassword, {
   host: dbHost,
-  dialect: dbDialect as any, 
+  dialect: dbDialect,
 });
 
 // Test the database connection

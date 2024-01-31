@@ -9,7 +9,6 @@ provider:
   timeout: 15
 
 functions:
- 
   usersAll:
     handler: /.webpack/functions/handler.usersAll
     events:
@@ -44,7 +43,18 @@ functions:
       - httpApi:
           path: /users/{id}
           method: put
-plugins: [ 'serverless-offline',serverless-sequelize-migrations]
+
+  swagger:
+    handler: .webpack/functions/handler.swagger
+    events:
+      - httpApi:
+          path: /api/swagger
+          method: get
+
+plugins:
+  - serverless-offline
+  - serverless-sequelize-migrations
+
 custom:
   sequelize-migrations:
-    modelsDir: '/models' 
+    modelsDir: '/models'

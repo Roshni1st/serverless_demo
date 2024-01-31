@@ -1,15 +1,15 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { sequelize, User } from '../models';
+import { User } from '../models';
 
- export const getAll = async (): Promise<APIGatewayProxyResult> => {
+export const getAll = async (): Promise<APIGatewayProxyResult> => {
   try {
     const users = await User.findAll();
     return {
       statusCode: 200,
       body: JSON.stringify({
         data: users,
-        status: true
-      })
+        status: true,
+      }),
     };
   } catch (err) {
     console.log('::::::: err getAll ::::::: ', err);
@@ -17,13 +17,13 @@ import { sequelize, User } from '../models';
       statusCode: 500,
       body: JSON.stringify({
         error: 'Internal Server Error',
-        status: false
-      })
+        status: false,
+      }),
     };
   }
 };
 
- export const getById = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const getById = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   try {
     const id = Number(event.pathParameters?.id);
 
@@ -32,8 +32,8 @@ import { sequelize, User } from '../models';
         statusCode: 400,
         body: JSON.stringify({
           error: 'Invalid ID format',
-          status: false
-        })
+          status: false,
+        }),
       };
     }
 
@@ -44,8 +44,8 @@ import { sequelize, User } from '../models';
         statusCode: 404,
         body: JSON.stringify({
           error: 'User not found',
-          status: false
-        })
+          status: false,
+        }),
       };
     }
 
@@ -53,8 +53,8 @@ import { sequelize, User } from '../models';
       statusCode: 200,
       body: JSON.stringify({
         data: userInstance,
-        status: true
-      })
+        status: true,
+      }),
     };
   } catch (err) {
     console.log('::::::: err getById ::::::: ', err);
@@ -62,42 +62,39 @@ import { sequelize, User } from '../models';
       statusCode: 500,
       body: JSON.stringify({
         error: 'Internal Server Error',
-        status: false
-      })
+        status: false,
+      }),
     };
   }
 };
 
 export const createUser = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   try {
-    let body = event.body || '{}';
+    const body = event.body || '{}';
     const data = JSON.parse(body);
 
-    const { first_name, last_name, age, dob, about } = data;
     const userInstance = await User.create(data);
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         data: userInstance,
-        status: true
-      })
+        status: true,
+      }),
     };
   } catch (err) {
-    console.log('Error in createUser:', err);  
+    console.log('Error in createUser:', err);
     return {
       statusCode: 500,
       body: JSON.stringify({
         error: 'Internal Server Error',
-        status: false
-      })
+        status: false,
+      }),
     };
   }
 };
 
-  
-
- export const deleteUser = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const deleteUser = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   try {
     const id = Number(event.pathParameters?.id);
 
@@ -106,8 +103,8 @@ export const createUser = async (event: APIGatewayProxyEvent): Promise<APIGatewa
         statusCode: 400,
         body: JSON.stringify({
           error: 'Invalid ID format',
-          status: false
-        })
+          status: false,
+        }),
       };
     }
 
@@ -117,8 +114,8 @@ export const createUser = async (event: APIGatewayProxyEvent): Promise<APIGatewa
       statusCode: 200,
       body: JSON.stringify({
         message: 'User Deleted !!',
-        status: true
-      })
+        status: true,
+      }),
     };
   } catch (err) {
     console.log('::::::: Err deleteUser ::::::: ', err);
@@ -126,8 +123,8 @@ export const createUser = async (event: APIGatewayProxyEvent): Promise<APIGatewa
       statusCode: 500,
       body: JSON.stringify({
         error: 'Internal Server Error',
-        status: false
-      })
+        status: false,
+      }),
     };
   }
 };
@@ -137,15 +134,15 @@ export const updateUser = async (event: APIGatewayProxyEvent): Promise<APIGatewa
     const id = Number(event.pathParameters?.id);
     const body = event.body || '{}';
     const data = JSON.parse(body);
-    const { first_name, last_name,age,dob, about } = data;
+    const { first_name, last_name, age, dob, about } = data;
 
     if (isNaN(id)) {
       return {
         statusCode: 400,
         body: JSON.stringify({
           error: 'Invalid ID format',
-          status: false
-        })
+          status: false,
+        }),
       };
     }
 
@@ -153,9 +150,11 @@ export const updateUser = async (event: APIGatewayProxyEvent): Promise<APIGatewa
       {
         first_name,
         last_name,
-        about
+        about,
+        age,
+        dob,
       },
-      { where: { id } }
+      { where: { id } },
     );
 
     if (updatedRows === 0) {
@@ -163,8 +162,8 @@ export const updateUser = async (event: APIGatewayProxyEvent): Promise<APIGatewa
         statusCode: 404,
         body: JSON.stringify({
           error: 'User not found',
-          status: false
-        })
+          status: false,
+        }),
       };
     }
 
@@ -172,8 +171,8 @@ export const updateUser = async (event: APIGatewayProxyEvent): Promise<APIGatewa
       statusCode: 200,
       body: JSON.stringify({
         message: 'User Updated !!',
-        status: true
-      })
+        status: true,
+      }),
     };
   } catch (err) {
     console.log('::::::: err updateUser ::::::: ', err);
@@ -181,9 +180,8 @@ export const updateUser = async (event: APIGatewayProxyEvent): Promise<APIGatewa
       statusCode: 500,
       body: JSON.stringify({
         error: 'Internal Server Error',
-        status: false
-      })
+        status: false,
+      }),
     };
   }
 };
-

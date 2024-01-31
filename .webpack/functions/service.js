@@ -49339,36 +49339,36 @@ var require_sequelize = __commonJS({
           keepDefaultTimezone: this.options.keepDefaultTimezone,
           dialectOptions: this.options.dialectOptions
         };
-        let Dialect;
+        let Dialect2;
         switch (this.getDialect()) {
           case "mariadb":
-            Dialect = require_mariadb();
+            Dialect2 = require_mariadb();
             break;
           case "mssql":
-            Dialect = require_mssql();
+            Dialect2 = require_mssql();
             break;
           case "mysql":
-            Dialect = require_mysql();
+            Dialect2 = require_mysql();
             break;
           case "oracle":
-            Dialect = require_oracle();
+            Dialect2 = require_oracle();
             break;
           case "postgres":
-            Dialect = require_postgres();
+            Dialect2 = require_postgres();
             break;
           case "sqlite":
-            Dialect = require_sqlite();
+            Dialect2 = require_sqlite();
             break;
           case "db2":
-            Dialect = require_db2();
+            Dialect2 = require_db2();
             break;
           case "snowflake":
-            Dialect = require_snowflake();
+            Dialect2 = require_snowflake();
             break;
           default:
             throw new Error(`The dialect ${this.getDialect()} is not supported. Supported dialects: mssql, mariadb, mysql, oracle, postgres, db2 and sqlite.`);
         }
-        this.dialect = new Dialect(this);
+        this.dialect = new Dialect2(this);
         this.dialect.queryGenerator.typeValidation = options.typeValidation;
         if (_.isPlainObject(this.options.operatorsAliases)) {
           deprecations.noStringOperators();
