@@ -30,3 +30,7 @@ GET - https://7qmo5tcd39.execute-api.ap-south-1.amazonaws.com/users/{id}
 POST - https://7qmo5tcd39.execute-api.ap-south-1.amazonaws.com/users
 DELETE - https://7qmo5tcd39.execute-api.ap-south-1.amazonaws.com/users/{id}
 PUT - https://7qmo5tcd39.execute-api.ap-south-1.amazonaws.com/users/{id}
+
+# swagger
+
+http://localhost:3000/api/swagger/
