@@ -5,7 +5,8 @@ provider:
   name: aws
   runtime: nodejs14.x
   region: ap-south-1
-  timeout: 60
+  stage: dev
+  timeout: 15
 
 functions:
  
@@ -24,21 +25,21 @@ functions:
           method: get
 
   saveUser:
-    handler: .webpack//functions/handler.saveUser
+    handler: .webpack/functions/handler.saveUser
     events:
       - httpApi:
           path: /users
           method: post
 
   removeUser:
-    handler: .webpack//functions/handler.removeUser
+    handler: .webpack/functions/handler.removeUser
     events:
       - httpApi:
           path: /users/{id}
           method: delete
 
   editUser:
-    handler: .webpack//functions/handler.editUser
+    handler: .webpack/functions/handler.editUser
     events:
       - httpApi:
           path: /users/{id}
